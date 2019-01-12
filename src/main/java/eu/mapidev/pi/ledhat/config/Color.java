@@ -1,26 +1,32 @@
 package eu.mapidev.pi.ledhat.config;
 
-public enum Color {
+public class Color {
 
-    WHITE(255, 255, 255),
-    LIGHT_GRAY(192, 192, 192),
-    GRAY(128, 128, 128),
-    DARK_GRAY(64, 64, 64),
-    BLACK(0, 0, 0),
-    RED(255, 0, 0),
-    PINK(255, 175, 175),
-    ORANGE(255, 200, 0),
-    YELLOW(255, 255, 0),
-    GREEN(0, 255, 0),
-    MAGENTA(255, 0, 255),
-    CYAN(0, 255, 255),
-    BLUE(0, 0, 255);
+    public final static Color WHITE = new Color(255, 255, 255);
+    public final static Color LIGHT_GRAY = new Color(192, 192, 192);
+    public final static Color GRAY = new Color(128, 128, 128);
+    public final static Color DARK_GRAY = new Color(64, 64, 64);
+    public final static Color BLACK = new Color(0, 0, 0);
+    public final static Color RED = new Color(255, 0, 0);
+    public final static Color PINK = new Color(255, 175, 175);
+    public final static Color ORANGE = new Color(255, 200, 0);
+    public final static Color YELLOW = new Color(255, 255, 0);
+    public final static Color GREEN = new Color(0, 255, 0);
+    public final static Color MAGENTA = new Color(255, 0, 255);
+    public final static Color CYAN = new Color(0, 255, 255);
+    public final static Color BLUE = new Color(0, 0, 255);
 
     private final int red;
     private final int green;
     private final int blue;
 
-    private Color(int red, int green, int blue) {
+    public Color(long bits) {
+	this.red = (short) (bits >> 16) & 255;
+	this.green = (short) (bits >> 8) & 255;
+	this.blue = (short) bits & 255;
+    }
+
+    public Color(int red, int green, int blue) {
 	this.red = red;
 	this.green = green;
 	this.blue = blue;
