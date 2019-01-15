@@ -15,6 +15,14 @@ public class Color {
     public final static Color MAGENTA = new Color(255, 0, 255);
     public final static Color CYAN = new Color(0, 255, 255);
     public final static Color BLUE = new Color(0, 0, 255);
+    public final static Color RANDOM = createRandomColor();
+
+    private static Color createRandomColor() {
+	int red = (int) (Math.random() * 255);
+	int green = (int) (Math.random() * 255);
+	int blue = (int) (Math.random() * 255);
+	return new Color(red, green, blue);
+    }
 
     private final int red;
     private final int green;
